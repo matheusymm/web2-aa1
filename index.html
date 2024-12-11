@@ -35,20 +35,40 @@
     </script>
   </head>
 
-  <body class="w-full flex flex-col min-h-screen">
-    <header class="flex justify-between items-center p-2 mt-1 bg-gray-200">
+  <body class="w-full flex flex-col bg-white">
+    <header
+      class="fixed top-0 left-0 w-full h-14 p-4 flex flex-row justify-between items-center bg-gray-200 dark:bg-gray-900"
+    >
       <div
         onclick="toggleMenu()"
-        class="select-none cursor-pointer text-gray-500 active:text-red-500 dark:hover:text-orange-300 dark:active:text-red-500 lg:hidden"
+        class="flex flex-row gap-x-4 select-none cursor-pointer"
       >
         <i class="material-icons">menu</i>
       </div>
       <div
-        class="absolute left-1/2 transform -translate-x-1/2 mb-1 text-2xl cursor-pointer select-none"
+        class="font-bold text-2xl cursor-pointer select-none dark:text-white"
       >
         Sportify
       </div>
-      <div onclick="toggleDarkMode()" class="select-none cursor-pointer">
+      <div
+        id="menu"
+        class="fixed top-14 left-0 w-full z-10 hidden flex-col p-2 gap-y-2 text-sm font-semibold bg-gray-200 border-t border-t-gray-300 dark:bg-gray-900 lg:static lg:top-0 lg:flex lg:flex-row lg:p-0 lg:text-sm"
+      >
+        <div
+          class="p-2 cursor-pointer select-none hover:text-orange-800 dark:hover:text-orange-300"
+        >
+          Entre
+        </div>
+        <div
+          class="p-2 cursor-pointer select-none hover:text-orange-800 dark:hover:text-orange-300"
+        >
+          Cadastre-se
+        </div>
+      </div>
+      <div
+        onclick="toggleDarkMode()"
+        class="select-none cursor-pointer text-black hover:text-yellow-500 dark:text-white"
+      >
         <div class="text-gray-500 dark:hidden">
           <i class="material-icons">dark_mode</i>
         </div>
@@ -57,47 +77,50 @@
         </div>
       </div>
     </header>
-    <div class="flex-grow">
-      <div class="flex flex-col w-full justify-center items-center text-center">
-        <img src="./images/logo.png" alt="logo" class="size-48" />
-        <h1 class="font-bold">Conheça as quadras da sua cidade!</h1>
+    <div class="mt-10 flex flex-col items-center justify-center">
+      <div class="flex flex-col items-center text-center">
+        <img src="./images/logo.png" alt="logo" class="size-48 m-0" />
+        <h1 class="font-bold mb-4">Conheça as quadras da sua cidade!</h1>
       </div>
-      <div
-        class="w-full h-full flex flex-col items-center justify-between gap-y-3 bg-slate-300"
-      >
-        <div class="w-full flex flex-col items-center gap-y-12 p-8">
-          <div class="w-full flex justify-end items-center">
-            <label for="cidade" class="sr-only">Cidade</label>
+      <div class="bg-gray-200 w-9/12 shadow-3xl rounded-xl">
+        <div class="p-4">
+          <div class="flex items-center text-lg mb-4">
             <input
+              type="text"
               id="cidade"
-              type="text"
+              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800"
               placeholder="Digite sua cidade"
-              class="w-full text-xl rounded p-2 outline-0 bg-slate-400 text-slate-800 placeholder:text-slate-800 focus:bg-slate-500"
             />
-            <!-- <i class="fa fa-map-marker" aria-hidden="true"></i> -->
           </div>
-          <div class="w-full flex justify-end items-center">
-            <label for="modalidade" class="sr-only">Modalidade</label>
+          <div class="flex items-center text-lg">
             <input
-              id="modalidade"
               type="text"
+              id="modalidade"
+              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800"
               placeholder="Digite a modalidade"
-              class="w-full text-xl rounded p-2 outline-0 bg-slate-400 text-slate-800 placeholder:text-slate-800 focus:bg-slate-500"
             />
-            <!-- <i class="fa fa-futbol-o" aria-hidden="true"></i> -->
           </div>
+        </div>
+        <div class="p-4">
+          <button
+            class="bg-slate-600 font-medium p-2 md:p-4 text-white uppercase w-full rounded-full"
+          >
+            Procurar
+          </button>
         </div>
       </div>
     </div>
-    <footer class="flex items-center bg-gray-800 p-2">
-      <div class="flex flex-wrap space-x-1 text-center">
+    <footer
+      class="fixed bottom-0 left-0 right-0 flex items-center bg-gray-800 p-2"
+    >
+      <div class="flex flex-wrap space-x-1 text-center text-white">
         <a href="">Sobre Nós</a>
         <span class="inline-block align-middle">.</span>
         <a href="">Termo de Uso</a>
         <span class="inline-block align-middle">.</span>
         <a href="">Política de Privacidade</a>
       </div>
-      <ul class="flex space-x-1 ml-auto">
+      <ul class="flex space-x-1 ml-auto text-white">
         <li>
           <a href="https://www.youtube.com/" target="_blank">
             <i class="fa fa-youtube-play" aria-hidden="true"></i>
