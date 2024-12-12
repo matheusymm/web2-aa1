@@ -68,11 +68,11 @@
                   "focus:bg-white",
                   "focus:outline-none",
                   "bg-white",
-                  "placeholder:text-red-800",
-                  "border-red-600",
-                  "text-red-800"
+                  "placeholder:text-slate-800",
+                  "border-slate-600",
+                  "text-slate-800"
               );
-              textoHorarioFim.classList.add("text-red-600");
+              textoHorarioFim.classList.add("text-slate-600");
               textoHorarioFim.classList.remove("text-gray-400");
               preencherHorariosFim();
           } else {
@@ -88,12 +88,12 @@
                   "focus:bg-white",
                   "focus:outline-none",
                   "bg-white",
-                  "placeholder:text-red-800",
-                  "border-red-600",
-                  "text-red-800"
+                  "placeholder:text-slate-800",
+                  "border-slate-600",
+                  "text-slate-800"
               );
               textoHorarioFim.classList.add("text-gray-400");
-              textoHorarioFim.classList.remove("text-red-600");
+              textoHorarioFim.classList.remove("text-slate-600");
               selectTermino.innerHTML = '<option value="" selected>Selecione um horário</option>';
           }
       }
@@ -113,11 +113,11 @@
             "focus:bg-white",
             "focus:outline-none",
             "bg-white",
-            "placeholder:text-red-800",
-            "border-red-600",
-            "text-red-800"
+            "placeholder:text-slate-800",
+            "border-slate-600",
+            "text-slate-800"
         );
-        textoHorarioInicio.classList.add("text-red-600");
+        textoHorarioInicio.classList.add("text-slate-600");
         textoHorarioInicio.classList.remove("text-gray-400");
     } else {
         selectInicio.disabled = true;
@@ -132,12 +132,12 @@
             "focus:bg-white",
             "focus:outline-none",
             "bg-white",
-            "placeholder:text-red-800",
-            "border-red-600",
-            "text-red-800"
+            "placeholder:text-slate-800",
+            "border-slate-600",
+            "text-slate-800"
         );
         textoHorarioInicio.classList.add("text-gray-400");
-        textoHorarioInicio.classList.remove("text-red-600");
+        textoHorarioInicio.classList.remove("text-slate-600");
     }
 }
 
@@ -149,29 +149,92 @@
       selectInicio.addEventListener("change", ajustaPreco);
       selectTermino.addEventListener("change", ajustaPreco);
   });
+
+    function toggleMenu() {
+            var x = document.getElementById("menu");
+            console.log(x.style.display);
+            if (x.style.display === "none" || x.style.display === "") {
+            x.style.display = "flex";
+            } else {
+            x.style.display = "none";
+            }
+    }
+
+  function toggleDarkMode() {
+            const htmlElement = document.documentElement;
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+            } else {
+                htmlElement.classList.add('dark');
+            }
+        }
     </script>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-white">
+    <header
+    class="fixed top-0 left-0 w-full h-14 p-4 flex flex-row justify-between items-center bg-gray-200 dark:bg-gray-900"
+  >
+    <div
+      onclick="toggleMenu()"
+      class="flex flex-row gap-x-4 select-none cursor-pointer lg:hidden dark:text-gray-200"
+    >
+      <i class="material-icons">menu</i>
+    </div>
+    <div
+      class="font-bold text-2xl cursor-pointer select-none dark:text-gray-200"
+    >
+      Sportify
+    </div>
+    <div
+      id="menu"
+      class="fixed top-14 left-0 w-full z-10 hidden flex-col p-2 gap-y-2 text-sm font-semibold bg-gray-200 border-t border-t-gray-300 dark:bg-slate-900 lg:static lg:top-0 lg:flex lg:flex-row lg:justify-end lg:text-sm lg:border-t-0"
+    >
+      <div
+        class="p-2 cursor-pointer select-none hover:text-orange-800 dark:text-gray-200 dark:hover:text-orange-300"
+      >
+        Entre
+      </div>
+      <div
+        class="p-2 cursor-pointer select-none hover:text-orange-800 dark:text-gray-200 dark:hover:text-orange-300"
+      >
+        Cadastre-se
+      </div>
+    </div>
+    <div
+      onclick="toggleDarkMode()"
+      class="select-none cursor-pointer hover:text-yellow-500 dark:text-gray-200"
+    >
+      <div class="dark:hidden">
+        <i class="material-icons">dark_mode</i>
+      </div>
+      <div class="hidden dark:block">
+        <i class="material-icons">light_mode</i>
+      </div>
+    </div>
+  </header>
 
+  <!-- Imagem da quadra (quadrante 1) -->
+    
     <div class="mx-auto w-full max-w-7xl p-5 rounded-lg bg-white flex flex-col h-screen">
-      <div class="flex flex-col md:flex-row h-1/2">
-        <div class="w-full md:w-1/2 flex items-center justify-center">
-          <img src="images/quadra1.jpeg" class="w-full h-full rounded-lg object-cover border-2 border-red-600" />
+      <div class="flex flex-col lg:flex-row h-1/2">
+        <div class="w-full lg:w-1/2 mt-12 flex items-center justify-center">
+          <img src="images/quadra1.jpeg" class="w-full h-full rounded-lg object-cover border-2 border-slate-600" />
         </div>
-        <div class="w-full md:w-1/2 flex flex-col justify-center md:p-5 md:text-2xl">
-          <div class="text-left text-red-600">
-            <p class="text-xl md:text-3xl font-bold md:mb-8">Ginásio Poliesportivo UFSCAR</p>
+        <!-- Informações da quadra (quadrante 2) -->
+        <div class="w-full lg:w-1/2 flex flex-col justify-center lg:p-5 lg:text-2xl">
+          <div class="text-left text-slate-600">
+            <p class="text-xl lg:text-3xl font-bold lg:mb-4 lg:mt-12">Ginásio Poliesportivo UFSCAR</p>
           </div>
           <div class="text-left flex items-center gap-1">
-            <i class="material-icons mr-2 text-base md:mt-4 ">location_on</i>
+            <i class="material-icons mr-2 text-base lg:mt-4 ">location_on</i>
             R. do Lago - São Carlos, SP
           </div>
           <div class="text-left flex items-center gap-1">
-            <i class="material-icons mr-2 text-base md:mt-4">schedule</i>
+            <i class="material-icons mr-2 text-base lg:mt-2">schedule</i>
             7:00 - 22:00
           </div>
-          <div class="text-left flex items-center gap-1 md:mt-4">
+          <div class="text-left flex items-center gap-1 lg:mt-2">
             <i class="material-icons mr-2 text-base ">account_circle</i>
             Telefone: (xx) xxxxx-xxxx <br>
             Email: user@email.com
@@ -179,37 +242,37 @@
         </div>
       </div>
 
-      <div class="flex flex-col h-1/2 justify-center items-center md:items-start mt-4 md:flex-row">
-        <div class="w-full md:w-1/2 items-center justify-center">
-        <div class="text-xl w-full text-center text-sm font-bold text-red-600 md:text-left mt-2 md:text-2xl">Escolha quando será a reserva!</div>
+      <div class="flex flex-col h-1/2 justify-center items-center lg:items-start mb-2 lg:mt-0 lg:mb-0 lg:flex-row">
+        <!-- Data e hora da reserva (quadrante 3) -->
+        <div class="w-full lg:w-1/2 items-center justify-center lg:mb-0">
+        <div class="text-xl w-full text-center text-sm font-bold text-slate-600 lg:text-left lg:text-2xl lg:mt-1">Escolha quando será a reserva!</div>
         <!-- Input field da data -->
-        <input id="default-datepicker" type="date" class="w-full text-xl rounded p-2 outline-1 outline-red-600
-        border-2 border-red-600 bg-white text-red-800 placeholder:text-red-800 focus:bg-white 
-        focus:outline-none rounded-lg text-center md:text-2xl" value="" placeholder="Escolha uma data">
+        <input id="default-datepicker" type="date" class="w-full text-xl rounded p-2 outline-1 outline-slate-600
+        border-2 border-slate-600 bg-white text-slate-800 placeholder:text-slate-800 focus:bg-white 
+        focus:outline-none rounded-lg text-center lg:text-2xl mt-4 mb-4 lg:mb-1 lg:mt-2" value="">
          <!-- Seletores de horário -->
-          <div id="texto-horario-inicio" class="text-xl w-full text-sm mb-1 text-gray-400 md:text-2xl">Horário de início</div>
+          <div id="texto-horario-inicio" class="text-xl w-full text-sm text-gray-400 lg:text-2xl">Horário de início</div>
           <select id="horarios-inicio" class="w-full text-xl rounded p-2 border-2 border-gray-300
           bg-gray-200 text-gray-500 placeholder:text-gray-400
-          cursor-not-allowed md:text-2xl" disabled>
+          cursor-not-allowed lg:text-2xl mt-2 mb-4 lg:mb-1" disabled>
               <option value="" selected>Selecione um horário</option>
           </select>
-      
-          <div id="texto-horario-termino" class="text-xl w-full text-sm mb-1 text-gray-400 md:text-2xl">Horário de Término</div>
+          <div id="texto-horario-termino" class="text-xl w-full text-sm text-gray-400 lg:text-2xl">Horário de Término</div>
           <select id="horarios-termino" class="w-full text-xl rounded p-2 border-2 border-gray-300
           bg-gray-200 text-gray-500 placeholder:text-gray-400
-          cursor-not-allowed md:text-2xl" disabled>
+          cursor-not-allowed lg:text-2xl mt-2 mb-6 lg:mb-0" disabled>
               <option value="" selected>Selecione um horário</option>
           </select>   
       </div>
-
-        <div class="w-full md:w-1/2 flex flex-col md:p-5 md:mt-4">
-        <div class="text-xl w-full text-sm text-red-600 mt-2 mr-2 text-center md:text-left md:text-2xl md:text-center">Preço
-        <input type="text" id="preco" class=" text-xl rounded p-2 outline-1 outline-red-600
-         border-2 border-red-600 bg-white text-red-800 placeholder:text-red-800 focus:bg-white 
-         focus:outline-none rounded-lg text-center md:text-2xl md:w-full md:h-14" value="R$0,00" disabled/>
+         <!-- Preço e botão de reservar (quadrante 4) -->
+        <div class="w-full lg:w-1/2 flex flex-col lg:p-5 lg:mt-4">
+        <div class="text-xl w-full text-sm text-slate-600 mr-2 text-center lg:text-left lg:text-2xl lg:text-center lg:mt-4">Preço
+        <input type="text" id="preco" class=" text-xl rounded p-2 outline-1 outline-slate-600
+         border-2 border-slate-600 bg-white text-slate-800 placeholder:text-slate-800 focus:bg-white 
+         focus:outline-none rounded-lg text-center lg:text-2xl lg:w-full lg:h-14 mb-6 lg:mt-2" value="R$0,00" disabled/>
         </div>    
-        <button class="select-none text-xl mt-2 rounded-lg p-2 w-full bg-red-600 text-white hover:bg-red-700
-                     active:bg-red-800 md:text-2xl md:mt-8 md:h-16">Reservar</button>
+        <button class="select-none text-xl rounded-lg p-2 w-full bg-slate-600 text-white hover:bg-slate-700
+                     active:bg-slate-800  lg:text-2xl lg:mt-8 lg:h-16 mb-8">Reservar</button>
        </div>
       </div>
     </div>
