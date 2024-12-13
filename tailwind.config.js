@@ -2,7 +2,11 @@
 module.exports = {
   content: ["**/*.html"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        passionOne: ["Montserrat", "sans-serif"],
+      },
+    },
   },
   plugins: [],
   darkMode: "selector",

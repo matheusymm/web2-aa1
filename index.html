@@ -1,17 +1,113 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Laboratório</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="tailwindOutput.css" rel="stylesheet" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-  </head>
+<html class="">
 
-  <body class="w-full h-dvh min-h-dvh flex items-center justify-center">
-    <div>Alô mundo!</div>
-  </body>
+<head>
+    <meta charset='utf-8'>
+    <title>Laboratório 1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="tailwindOutput.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+
+    <script>
+        function toggleDarkMode() {
+            const htmlElement = document.documentElement;
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+            } else {
+                htmlElement.classList.add('dark');
+            }
+        }
+        function toggleMenu() {
+            var x = document.getElementById("menu");
+            console.log(x.style.display);
+            if (x.style.display === "none" || x.style.display === "") {
+                x.style.display = "flex";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="flex flex-row items-center gap-x-4 ">
+        <div onclick="toggleMenu()" class="flex items-center justify-center
+        select-none cursor-pointer text-gray-500 hover:text-orange-800
+        active:text-red-500 dark:hover:text-orange-300
+        dark:active:text-red-500 lg:hidden">
+            <i class="material-icons">menu</i>
+        </div>
+        <div id="header" class="top-14 left-0 w-full z-10 p-8 gap-y-2 text-lg font-bold bg-gray-200 dark:bg-gray-900
+        lg:static lg:top-0 lg:flex lg:flex-row lg:p-0 lg:text-sm ">
+            <div class="text-2xl cursor-pointer
+            select-none">Sportify</div>
+            <div id="menu" class="top-14 left-0 w-full hidden
+            flex-col p-8 gap-y-2 text-lg bg-gray-200 dark:bg-gray-900
+            lg:static lg:top-0 lg:flex lg:flex-row lg:p-0 lg:text-sm justify-end">
+                <div class="p-2 cursor-pointer select-none hover:text-orange-800
+                dark:hover:text-orange-300">Entre</div>
+                <div class="p-2 cursor-pointer select-none hover:text-orange-800
+                dark:hover:text-orange-300">Cadastre-se</div>
+                <div onclick="toggleDarkMode()" class="select-none cursor-pointer
+                    text-black hover:text-yellow-500
+                    dark:text-white mr-4 mt-1">
+                <div class="text-xs dark:hidden">
+                    <i class="material-icons">nightlight</i>
+                </div>
+                <div class="text-xs hidden dark:block">
+                    <i class="material-icons">lightbulb</i>
+                </div>
+            </div> 
+            </div>
+        </div>
+    </div>
+    <div class="w-full h-full flex flex-col gap-y-8 items-center
+    justify-center">     
+        <div class="font-bold text-5xl font-passionOne"> Sportify </div>   
+        <img src="images/logo.png" class="w-80 dark:hidden"></img>
+        <img src="images/logoDark.png" class="w-80 hidden dark:block"></img>
+    </div>
+    <div class="w-full flex flex-col items-center gap-y-12 p-8">
+        <div class="w-full flex-col relative flex justify-end items-center
+            md:w-80">
+            <div class="text-xl w-full text-center text-sm">Conheça as quadras da sua cidade!</div>
+            <select placeholder="Escreva o nome da cidade" class="w-full text-xl
+            rounded p-2 outline-0 bg-slate-400 text-slate-800
+            placeholder:text-slate-800 focus:bg-slate-500
+            dark:bg-slate-700 dark:text-slate-300
+            dark:placeholder:text-slate-300 dark:focus:bg-slate-600
+            md:text-base mt-4"  type="text" list="cidade">
+                <option selected>Selecione uma cidade</option>
+                <option value="DC">Descalvado</option>
+                <option value="MA">Monte Alto</option>
+                <option value="SC">São Carlos</option>
+                <option value="VN">Vinhedo</option>
+            </select>
+        
+            <div class="text-xl w-full text-center text-sm mt-4">Qual é a modalidade desejada?</div>
+            <select placeholder="Escreva o nome da modalidade" class="w-full text-xl
+            rounded p-2 outline-0 bg-slate-400 text-slate-800
+            placeholder:text-slate-800 focus:bg-slate-500
+            dark:bg-slate-700 dark:text-slate-300
+            dark:placeholder:text-slate-300 dark:focus:bg-slate-600
+            md:text-base mt-4"  type="text" list="modalidade">
+                <option selected>Selecione uma modalidade</option>
+                <option value="BB">Basquete</option>
+                <option value="FB">Futebol</option>
+                <option value="TN">Tênis</option>
+                <option value="VB">Vôlei</option>
+            </select>
+            <button class="select-none text-xl mt-8 rounded p-2 w-full
+                    bg-slate-600 text-white  hover:bg-blue-700
+                    active:bg-blue-500 dark:bg-slate-400 dark:text-slate-800
+                    dark:hover:bg-blue-900 dark:hover:text-blue-300
+                    dark:active:bg-blue-700
+                    md:text-base">
+                    Procurar</button>
+        </div>
+    </div>
+</body>
+
 </html>

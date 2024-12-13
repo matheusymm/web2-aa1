@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset='utf-8'>
+    <title>Laboratório 1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="tailwindOutput.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const htmlElement = document.documentElement;
+
+            const toggleDarkMode = () => {
+                htmlElement.classList.toggle('dark');
+            };
+
+            document.getElementById("darkModeToggle").addEventListener("click", toggleDarkMode);
+
+            const horaInicio = 7;
+            const horaFim = 22;
+            const selectInicio = document.getElementById("horarios-inicio");
+            const selectTermino = document.getElementById("horarios-termino");
+            const selectData = document.getElementById("default-datepicker");
+            const textoHorarioFim = document.getElementById("texto-horario-termino");
+            const textoHorarioInicio = document.getElementById("texto-horario-inicio");
+            const precoCalculado = document.getElementById("preco");
+
+            function preencherHorariosInicio() {
+                for (let hora = horaInicio; hora <= horaFim - 1; hora++) {
+                    const horaFormatada = `${hora}:00`;
+
+                    const option = document.createElement("option");
+                    option.value = horaFormatada;
+                    option.textContent = horaFormatada;
+                    selectInicio.appendChild(option);
+                }
+            }
+
+            function preencherHorariosFim() {
+                const horaSelecionada = parseInt(selectInicio.value.split(":")[0]);
+                selectTermino.innerHTML = '<option value="" selected>Selecione um horário</option>';
+
+                for (let hora = horaSelecionada + 1; hora <= horaFim; hora++) {
+                    const horaFormatada = `${hora}:00`;
+
+                    const option = document.createElement("option");
+                    option.value = horaFormatada;
+                    option.textContent = horaFormatada;
+                    selectTermino.appendChild(option);
+                }
+            }
+
+            function ajustaPreco() {
+                if (selectInicio.value !== "" && selectTermino.value !== "") {
+                    const horaSelecionadaInicio = parseInt(selectInicio.value.split(":")[0]);
+                    const horaSelecionadaTermino = parseInt(selectTermino.value.split(":")[0]);
+                    const precoHoras = 20 * (horaSelecionadaTermino - horaSelecionadaInicio);
+                    precoCalculado.value = `R$${precoHoras},00`;
+                } else {
+                    precoCalculado.value = `R$0,00`;
+                }
+            }
+
+            function ativarCampoTermino() {
+                if (selectInicio.value !== "") {
+                    selectTermino.disabled = false;
+                    selectTermino.classList.remove(
+                        "cursor-not-allowed",
+                        "bg-slate-100",
+                        "dark:bg-gray-700",
+                        "placeholder:text-slate-500",
+                        "dark:placeholder:text-gray-400",
+                        "border-slate-500",
+                        "dark:border-gray-300",
+                        "text-slate-500",
+                        "dark:text-gray-400"
+                    );
+                    selectTermino.classList.add(
+                        "focus:bg-white",
+                        "dark:focus:bg-gray-600",
+                        "focus:outline-none",
+                        "bg-white",
+                        "dark:bg-gray-700",
+                        "placeholder:text-slate-800",
+                        "dark:placeholder:text-gray-200",
+                        "border-slate-800",
+                        "dark:border-gray-300",
+                        "text-slate-800",
+                        "dark:text-gray-200"
+                    );
+                    textoHorarioFim.classList.add("text-slate-800", "dark:text-gray-200");
+                    textoHorarioFim.classList.remove("text-slate-500", "dark:text-gray-400");
+                    preencherHorariosFim();
+                } else {
+                    selectTermino.disabled = true;
+                    selectTermino.classList.add(
+                        "cursor-not-allowed",
+                        "bg-slate-100",
+                        "dark:bg-gray-700",
+                        "placeholder:text-slate-500",
+                        "dark:placeholder:text-gray-400",
+                        "border-slate-500",
+                        "dark:border-gray-300",
+                        "text-slate-500",
+                        "dark:text-gray-400"
+                    );
+                    selectTermino.classList.remove(
+                        "focus:bg-white",
+                        "dark:focus:bg-gray-600",
+                        "focus:outline-none",
+                        "bg-white",
+                        "dark:bg-gray-700",
+                        "placeholder:text-slate-800",
+                        "dark:placeholder:text-gray-200",
+                        "border-slate-800",
+                        "dark:border-gray-300",
+                        "text-slate-800",
+                        "dark:text-gray-200"
+                    );
+                    textoHorarioFim.classList.add("text-slate-500", "dark:text-gray-400");
+                    textoHorarioFim.classList.remove("text-slate-800", "dark:text-gray-200");
+                    selectTermino.innerHTML = '<option value="" selected>Selecione um horário</option>';
+                }
+            }
+
+            function ativarCampoInicio() {
+                if (selectData.value.trim() !== "") {
+                    selectInicio.disabled = false;
+                    selectInicio.classList.remove(
+                        "cursor-not-allowed",
+                        "bg-slate-100",
+                        "dark:bg-gray-700",
+                        "placeholder:text-slate-500",
+                        "dark:placeholder:text-gray-400",
+                        "border-slate-500",
+                        "dark:border-gray-300",
+                        "text-slate-500",
+                        "dark:text-gray-400"
+                    );
+                    selectInicio.classList.add(
+                        "focus:bg-white",
+                        "dark:focus:bg-gray-600",
+                        "focus:outline-none",
+                        "bg-white",
+                        "dark:bg-gray-700",
+                        "placeholder:text-slate-800",
+                        "dark:placeholder:text-gray-200",
+                        "border-slate-800",
+                        "dark:border-gray-300",
+                        "text-slate-800",
+                        "dark:text-gray-200"
+                    );
+                    textoHorarioInicio.classList.add("text-slate-800", "dark:text-gray-200");
+                    textoHorarioInicio.classList.remove("text-slate-500", "dark:text-gray-400");
+                } else {
+                    selectInicio.disabled = true;
+                    selectInicio.classList.add(
+                        "cursor-not-allowed",
+                        "bg-slate-100",
+                        "dark:bg-gray-700",
+                        "placeholder:text-slate-500",
+                        "dark:placeholder:text-gray-400",
+                        "border-slate-500",
+                        "dark:border-gray-300",
+                        "text-slate-500",
+                        "dark:text-gray-400"
+                    );
+                    selectInicio.classList.remove(
+                        "focus:bg-white",
+                        "dark:focus:bg-gray-600",
+                        "focus:outline-none",
+                        "bg-white",
+                        "dark:bg-gray-700",
+                        "placeholder:text-slate-800",
+                        "dark:placeholder:text-gray-200",
+                        "border-slate-800",
+                        "dark:border-gray-300",
+                        "text-slate-800",
+                        "dark:text-gray-200"
+                    );
+                    textoHorarioInicio.classList.add("text-slate-500", "dark:text-gray-400");
+                    textoHorarioInicio.classList.remove("text-slate-800", "dark:text-gray-200");
+                }
+            }
+            preencherHorariosInicio();
+
+            selectData.addEventListener("input", ativarCampoInicio);
+            selectInicio.addEventListener("change", ativarCampoTermino);
+            selectInicio.addEventListener("change", ajustaPreco);
+            selectTermino.addEventListener("change", ajustaPreco);
+        });
+    </script>
+</head>
+
+<body class="lg:bg-slate-300 lg:dark:bg-slate-800 md:bg-slate-500 dark:bg-slate-700">
+    <header class="fixed top-0 left-0 w-full h-14 p-4 flex flex-row justify-between items-center bg-gray-200 dark:bg-gray-900 border-b-2 border-slate-800 dark:border-gray-300">
+        <div onclick="toggleMenu()" class="flex flex-row gap-x-4 select-none cursor-pointer lg:hidden dark:text-gray-200">
+            <i class="material-icons">menu</i>
+        </div>
+        <div class="font-bold text-2xl cursor-pointer select-none dark:text-gray-200">Sportify</div>
+        <div id="menu" class="fixed top-14 left-0 w-full z-10 hidden flex-col p-2 gap-y-2 text-sm font-semibold bg-gray-200 border-t border-t-gray-300 dark:bg-gray-900 lg:static lg:top-0 lg:flex lg:flex-row lg:justify-end lg:text-sm lg:border-t-0">
+            <div class="p-2 cursor-pointer select-none hover:text-orange-800 dark:text-gray-200 dark:hover:text-orange-300">Entre</div>
+            <div class="p-2 cursor-pointer select-none hover:text-orange-800 dark:text-gray-200 dark:hover:text-orange-300">Cadastre-se</div>
+        </div>
+        <div id="darkModeToggle" class="select-none cursor-pointer hover:text-yellow-500 dark:text-gray-200">
+            <div class="dark:hidden">
+                <i class="material-icons">dark_mode</i>
+            </div>
+            <div class="hidden dark:block">
+                <i class="material-icons">light_mode</i>
+            </div>
+        </div>
+    </header>
+
+    <div class="mx-auto w-full max-w-7xl p-5 rounded-lg bg-slate-300 dark:bg-gray-800 flex flex-col h-screen md:w-3/4 md:h-3/4 md:rounded-2xl md:p-12 md:mt-32 lg:mt-8 lg:p-8">
+        <div class="flex flex-col lg:flex-row h-1/2">
+            <div class="w-full lg:w-1/2 mt-12 md:mt-0 flex items-center justify-center">
+                <img src="images/quadra1.jpeg" class="w-full h-full rounded-lg object-cover border-2 border-slate-800 dark:border-gray-300" />
+            </div>
+            <div class="w-full lg:w-1/2 flex flex-col justify-center lg:p-5 lg:text-2xl">
+                <div class="text-left text-slate-800 dark:text-gray-300">
+                    <p class="text-xl lg:text-3xl font-bold lg:mb-4 lg:mt-12">Ginásio Poliesportivo UFSCAR</p>
+                </div>
+                <div class="text-left flex items-center gap-1 text-slate-800 dark:text-gray-300">
+                    <i class="material-icons mr-2 text-base lg:mt-2">location_on</i> R. do Lago - São Carlos, SP
+                </div>
+                <div class="text-left flex items-center gap-1 text-slate-800 dark:text-gray-300">
+                    <i class="material-icons mr-2 text-base lg:mt-2">schedule</i> 7:00 - 22:00
+                </div>
+                <div class="text-left flex items-center gap-1 lg:mt-2 text-slate-800 dark:text-gray-300">
+                    <i class="material-icons mr-2 text-base">account_circle</i> Telefone: (xx) xxxxx-xxxx <br>
+                    Email: user@email.com
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col h-1/2 justify-center items-center lg:items-start mb-2 lg:mt-0 lg:mb-0 lg:flex-row">
+            <div class="w-full lg:w-1/2 items-center justify-center lg:mb-0">
+                <div class="text-xl w-full text-center text-sm font-bold text-slate-800
+                 dark:text-gray-300 md:mt-6 lg:text-left lg:text-2xl lg:mt-1">
+                Escolha quando será a reserva!</div>
+                <input id="default-datepicker" type="date" class="w-full text-xl rounded p-2 outline-1 outline-slate-800 border-2
+                 border-slate-800 bg-white dark:bg-gray-700 text-slate-800 dark:text-gray-300 placeholder:text-slate-800
+                  dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:outline-none rounded-lg text-center
+                   lg:text-2xl mt-4 mb-4 lg:mb-1 lg:mt-2 dark:border-gray-300" value="">
+                <div id="texto-horario-inicio" class="text-xl w-full text-sm text-slate-500 dark:text-gray-400 md:mt-6 lg:mt-0 lg:text-2xl">Horário de início</div>
+                <select id="horarios-inicio" class="w-full text-xl rounded p-2 border-2 border-slate-500 bg-slate-100 dark:bg-gray-700 text-slate-500 dark:text-gray-400 placeholder:text-slate-500 dark:placeholder:text-gray-400 cursor-not-allowed lg:text-2xl mt-2 mb-4 lg:mb-1" disabled>
+                    <option value="" selected>Selecione um horário</option>
+                </select>
+                <div id="texto-horario-termino" class="text-xl w-full text-sm text-slate-500 dark:text-gray-400 lg:text-2xl">Horário de Término</div>
+                <select id="horarios-termino" class="w-full text-xl rounded p-2 border-2 border-slate-500
+                 bg-slate-100 dark:bg-gray-700 text-slate-500 dark:text-gray-400 placeholder:text-slate-500
+                  dark:placeholder:text-gray-400 cursor-not-allowed lg:text-2xl mt-2 mb-6 lg:mb-0" disabled>
+                    <option value="" selected>Selecione um horário</option>
+                </select>
+            </div>
+            <div class="w-full lg:w-1/2 flex flex-col lg:p-5 lg:mt-4">
+                <div class="text-xl w-full text-sm text-slate-800 dark:text-gray-300 mr-2 text-center md:mt-6 lg:text-left lg:text-2xl lg:text-center lg:mt-4">Preço
+                    <input type="text" id="preco" class="text-xl rounded p-2 outline-1 outline-slate-800 border-2 border-slate-800 bg-white dark:bg-gray-700 text-slate-800 dark:text-gray-300 placeholder:text-slate-800 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:outline-none rounded-lg text-center lg:text-2xl lg:w-full lg:h-14 mb-6 lg:mt-2 dark:border-gray-300" value="R$0,00" disabled />
+                </div>
+                <button class="select-none text-xl rounded-lg p-2 w-full bg-slate-800 dark:bg-gray-600 text-white dark:text-gray-200 hover:bg-slate-700 dark:hover:bg-gray-500 active:bg-slate-800 md:mt-6 md:mb-0 lg:text-2xl lg:mt-4 lg:h-16 lg:mb-8 mb-8">Reservar</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
