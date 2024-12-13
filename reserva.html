@@ -234,7 +234,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex flex-col h-1/2 justify-center items-center lg:items-start mb-2 lg:mt-0 lg:mb-0 lg:flex-row">
+        <div class="flex flex-col h-1/2 justify-center items-center lg:items-start lg:mt-0 lg:mb-0 lg:flex-row">
             <div class="w-full lg:w-1/2 items-center justify-center lg:mb-0">
                 <div class="text-xl w-full text-center text-sm font-bold text-slate-800
                  dark:text-gray-300 md:mt-6 lg:text-left lg:text-2xl lg:mt-1">
@@ -242,23 +242,29 @@
                 <input id="default-datepicker" type="date" class="w-full text-xl rounded p-2 outline-1 outline-slate-800 border-2
                  border-slate-800 bg-white dark:bg-gray-700 text-slate-800 dark:text-gray-300 placeholder:text-slate-800
                   dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:outline-none rounded-lg text-center
-                   lg:text-2xl mt-4 mb-4 lg:mb-1 lg:mt-2 dark:border-gray-300" value="">
-                <div id="texto-horario-inicio" class="text-xl w-full text-sm text-slate-500 dark:text-gray-400 md:mt-6 lg:mt-0 lg:text-2xl">Horário de início</div>
-                <select id="horarios-inicio" class="w-full text-xl rounded p-2 border-2 border-slate-500 bg-slate-100 dark:bg-gray-700 text-slate-500 dark:text-gray-400 placeholder:text-slate-500 dark:placeholder:text-gray-400 cursor-not-allowed lg:text-2xl mt-2 mb-4 lg:mb-1" disabled>
+                   lg:text-2xl mt-4 lg:mb-1 lg:mt-2 dark:border-gray-300" value="">
+                <div id="texto-horario-inicio" class="text-xl w-full text-sm text-slate-500 dark:text-gray-400 mt-4 md:mt-6 lg:mt-0 lg:text-2xl">Horário de início</div>
+                <select id="horarios-inicio" class="w-full text-xl rounded p-2 border-2 border-slate-500 bg-slate-100 dark:bg-gray-700 
+                text-slate-500 dark:text-gray-400 
+                placeholder:text-slate-500 dark:placeholder:text-gray-400 cursor-not-allowed lg:text-2xl mt-2 lg:mb-1" disabled>
                     <option value="" selected>Selecione um horário</option>
                 </select>
-                <div id="texto-horario-termino" class="text-xl w-full text-sm text-slate-500 dark:text-gray-400 lg:text-2xl">Horário de Término</div>
+                <div id="texto-horario-termino" class="text-xl w-full text-sm text-slate-500 dark:text-gray-400 lg:text-2xl mt-4 lg:mt-0">Horário de Término</div>
                 <select id="horarios-termino" class="w-full text-xl rounded p-2 border-2 border-slate-500
                  bg-slate-100 dark:bg-gray-700 text-slate-500 dark:text-gray-400 placeholder:text-slate-500
-                  dark:placeholder:text-gray-400 cursor-not-allowed lg:text-2xl mt-2 mb-6 lg:mb-0" disabled>
+                  dark:placeholder:text-gray-400 cursor-not-allowed lg:text-2xl mt-2 lg:mb-0" disabled>
                     <option value="" selected>Selecione um horário</option>
                 </select>
             </div>
-            <div class="w-full lg:w-1/2 flex flex-col lg:p-5 lg:mt-4">
+            <div class="w-full lg:w-1/2 flex flex-col lg:p-5 lg:mt-4 mt-6">
                 <div class="text-xl w-full text-sm text-slate-800 dark:text-gray-300 mr-2 text-center md:mt-6 lg:text-left lg:text-2xl lg:text-center lg:mt-4">Preço
-                    <input type="text" id="preco" class="text-xl rounded p-2 outline-1 outline-slate-800 border-2 border-slate-800 bg-white dark:bg-gray-700 text-slate-800 dark:text-gray-300 placeholder:text-slate-800 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:outline-none rounded-lg text-center lg:text-2xl lg:w-full lg:h-14 mb-6 lg:mt-2 dark:border-gray-300" value="R$0,00" disabled />
+                    <input type="text" id="preco" class="text-xl rounded p-2 outline-1 outline-slate-800 border-2 border-slate-800 bg-white dark:bg-gray-700 text-slate-800
+                     dark:text-gray-300 placeholder:text-slate-800 dark:placeholder:text-gray-400 focus:bg-white dark:focus:bg-gray-600 focus:outline-none
+                      rounded-lg text-center lg:text-2xl lg:w-full lg:h-14 lg:mt-2 dark:border-gray-300" value="R$0,00" disabled />
                 </div>
-                <button class="select-none text-xl rounded-lg p-2 w-full bg-slate-800 dark:bg-gray-600 text-white dark:text-gray-200 hover:bg-slate-700 dark:hover:bg-gray-500 active:bg-slate-800 md:mt-6 md:mb-0 lg:text-2xl lg:mt-4 lg:h-16 lg:mb-8 mb-8">Reservar</button>
+                <button class="select-none text-xl rounded-lg p-2 w-full bg-slate-800 dark:bg-gray-600 text-white dark:text-gray-200 
+                hover:bg-slate-700 dark:hover:bg-gray-500 active:bg-slate-800 md:mt-8 md:mb-0 lg:text-2xl lg:mt-10 lg:h-16 lg:mb-8 mt-6">Reservar</button>
+                <div class="mt-8 md:mt-0 lg:mt-0"></div>
             </div>
         </div>
     </div>
