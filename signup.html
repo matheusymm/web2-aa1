@@ -47,9 +47,10 @@
     </script>
   </head>
 
-  <body class="w-full flex flex-col bg-white dark:bg-slate-800">
+  <body class="w-full flex flex-col bg-slate-300 dark:bg-slate-800">
     <header
-      class="top-0 left-0 w-full h-14 p-4 flex flex-row justify-between items-center lg:p-6 lg:h-20 bg-gray-200 dark:bg-gray-900"
+      class="top-0 left-0 w-full h-14 p-4 flex flex-row justify-between items-center border-b-2  border-slate-800 dark:border-gray-300
+       dark:lg:p-6 lg:h-15 bg-gray-200 dark:bg-gray-900"
     >
       <div
         onclick="toggleMenu()"
@@ -58,28 +59,30 @@
         <i class="material-icons">menu</i>
       </div>
       <div
-        class="font-bold text-2xl cursor-pointer select-none dark:text-gray-200 lg:text-4xl xl:text-5xl 2xl:text-5xl"
+        class="font-bold text-2xl cursor-pointer select-none dark:text-gray-200 lg:text-3xl"
       >
         Sportify
       </div>
       <div
         id="menu"
-        class="fixed top-14 left-0 w-full z-10 hidden flex-col p-2 gap-y-2 text-sm font-semibold bg-gray-200 border-t border-t-gray-300 dark:bg-slate-900 lg:static lg:top-0 lg:flex lg:flex-row lg:justify-end lg:text-sm lg:border-t-0"
+        class="fixed top-14 left-0 w-full z-10 hidden flex-col p-2 gap-y-2 text-sm font-semibold bg-gray-200 lg:bg-transparent lg:border-b-0 border-b 
+         border-slate-800 dark:border-gray-300 dark:bg-slate-900 lg:static lg:flex lg:flex-row lg:justify-end 
+          lg:border-t-0"
       >
         <div
-          class="p-2 cursor-pointer select-none hover:text-orange-800 lg:text-xl xl:text-2xl 2xl:text-2xl dark:text-gray-200 dark:hover:text-orange-300"
+          class="p-2 cursor-pointer select-none hover:text-orange-800 lg:text-xl dark:text-gray-200 dark:hover:text-orange-300 mt-2"
         >
           Entre
         </div>
         <div
-          class="p-2 cursor-pointer select-none hover:text-orange-800 lg:text-xl xl:text-2xl 2xl:text-2xl dark:text-gray-200 dark:hover:text-orange-300"
+          class="p-2 cursor-pointer select-none hover:text-orange-800 lg:text-xl dark:text-gray-200 dark:hover:text-orange-300 mt-2"
         >
           Cadastre-se
         </div>
       </div>
       <div
         onclick="toggleDarkMode()"
-        class="select-none cursor-pointer hover:text-yellow-500 dark:text-gray-200"
+        class="select-none cursor-pointer hover:text-yellow-500 dark:text-gray-200 mt-2"
       >
         <div class="dark:hidden">
           <i class="material-icons">dark_mode</i>
@@ -90,9 +93,11 @@
       </div>
     </header>
     <div
-      class="mt-10 mb-20 flex flex-col items-center justify-center md:mt-20 lg:mt-36 lg:grid-cols-2 lg:grid lg:w-3/4 lg:rounded-xl lg:justify-center lg:mx-auto xl:w-1/2 lg:bg-gray-200 dark:bg-slate-700"
+      class="mt-10 mb-20 flex flex-col items-center justify-center md:mt-20 lg:mt-36 lg:grid-cols-2 
+      lg:grid lg:w-3/4 lg:rounded-xl lg:justify-center lg:mx-auto xl:w-1/2 lg:bg-gray-200 dark:bg-slate-700
+      lg:border-2 border-slate-800 dark:border-gray-300"
     >
-      <div class="flex flex-col items-center text-center">
+      <div class="flex flex-col items-center text-center ">
         <img
           src="./images/logo.png"
           alt="logo"
@@ -110,14 +115,17 @@
         </h1>
       </div>
       <div
-        class="bg-gray-200 w-9/12 shadow-3xl rounded-xl h-fit md:w-1/2 lg:w-full dark:bg-slate-700"
+        class="bg-gray-200 w-9/12 shadow-3xl rounded-xl h-fit md:w-1/2 lg:w-full dark:bg-slate-700 
+        border-2 lg:border-0 border-slate-800 dark:border-gray-300"
       >
         <div class="p-4">
           <div class="relative justify-end flex items-center text-lg mb-4">
             <input
               type="text"
               id="nome"
-              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4 dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200"
+              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4
+               dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200
+               border-2 border-slate-800 dark:border-gray-300"
               placeholder="Digite seu nome"
             />
             <i class="material-icons absolute mr-2 dark:text-gray-200"
@@ -128,7 +136,9 @@
             <input
               type="text"
               id="email"
-              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4 dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200"
+              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4
+               dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200
+               border-2 border-slate-800 dark:border-gray-300"
               placeholder="Digite seu e-mail"
             />
             <i class="material-icons absolute mr-2 dark:text-gray-200">mail</i>
@@ -137,7 +147,9 @@
             <input
               type="password"
               id="senha"
-              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4 dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200"
+              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4
+               dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200
+               border-2 border-slate-800 dark:border-gray-300"
               placeholder="Digite sua senha"
             />
             <i
@@ -151,8 +163,10 @@
             <input
               type="password"
               id="senha-confirmacao"
-              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4 dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200"
-              placeholder="Digite sua senha"
+              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4
+               dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200
+               border-2 border-slate-800 dark:border-gray-300"
+              placeholder="Confirme sua senha"
             />
             <i
               id="visibility-icon-confirm"
@@ -165,7 +179,9 @@
             <input
               type="text"
               id="cpf"
-              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4 dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200"
+              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4
+               dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200
+               border-2 border-slate-800 dark:border-gray-300"
               placeholder="Digite seu CPF"
             />
             <i class="material-icons absolute mr-2 dark:text-gray-200">badge</i>
@@ -174,15 +190,20 @@
             <input
               type="text"
               id="celular"
-              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4 dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200"
+              class="bg-slate-400 rounded p-2 w-full text-slate-800 placeholder:text-slate-800 lg:p-4
+               dark:bg-slate-800 dark:placeholder:text-gray-200 dark:text-gray-200
+               border-2 border-slate-800 dark:border-gray-300"
               placeholder="Digite seu celular"
             />
             <i class="material-icons absolute mr-2 dark:text-gray-200">call</i>
           </div>
         </div>
-        <div class="p-4 lg:flex lg:justify-center">
+        <div class="p-4 lg:flex lg:justify-center text-center">
           <button
-            class="bg-slate-600 font-medium p-2 text-white uppercase w-full rounded-full md:p-4 lg:p-4 lg:w-1/2 dark:bg-slate-900"
+            class="font-medium uppercase rounded-full select-none text-xl
+            p-2 w-2/3 bg-slate-800 dark:bg-slate-500 text-white dark:text-gray-200 
+           hover:bg-slate-700 dark:hover:bg-gray-500 active:bg-slate-800 md:p-4
+             lg:p-4 justify-center md:w-1/2"
           >
             Cadastrar
           </button>
@@ -190,13 +211,11 @@
       </div>
     </div>
     <footer
-      class="bottom-0 left-0 right-0 flex items-center bg-slate-700 p-2 lg:p-4 sm:fixed dark:bg-black"
+      class="fixed bottom-0 w-full bg-slate-700 p-2 lg:p-4 dark:bg-black transform translate-y-[50%] hover:translate-y-0 transition-transform duration-300 flex items-center"
     >
-      <div class="flex flex-wrap space-x-1 text-center text-gray-200">
+      <div class="flex flex-col space-y-1 text-left text-gray-200">
         <a href="">Sobre Nós</a>
-        <span class="inline-block align-middle">.</span>
         <a href="">Termo de Uso</a>
-        <span class="inline-block align-middle">.</span>
         <a href="">Política de Privacidade</a>
       </div>
       <ul class="flex space-x-1 ml-auto text-gray-200">
