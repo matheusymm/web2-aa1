@@ -4,6 +4,6 @@
 
 ## Integrantes do grupo
 
-- [Giovanni Rossi](https://github.com/Giovanni-Rossi)
-- [Matheus Yuiti Moriy Miata](https://github.com/matheusymm)
-- [Vítor Milanez](https://github.com/VMila)
+- [Giovanni Rossi](https://github.com/Giovanni-Rossi), RA: 801301
+- [Matheus Yuiti Moriy Miata](https://github.com/matheusymm), RA: 802097
+- [Vítor Milanez](https://github.com/VMila), RA: 804319
